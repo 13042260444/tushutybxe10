@@ -1,0 +1,36 @@
+package com.dao;
+
+import com.entity.UserEntity;
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import java.util.List;
+import java.util.Map;
+import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.plugins.pagination.Pagination;
+
+import org.apache.ibatis.annotations.Param;
+import com.entity.vo.UserVO;
+import com.entity.view.UserView;
+
+
+/**
+ * 用户
+ * 
+ * @author 
+ * @email 
+ * @date 2026-05-13 17:46:33
+ */
+public interface UserDao extends BaseMapper<UserEntity> {
+	
+	List<UserVO> selectListVO(@Param("ew") Wrapper<UserEntity> wrapper);
+	
+	UserVO selectVO(@Param("ew") Wrapper<UserEntity> wrapper);
+	
+	List<UserView> selectListView(@Param("ew") Wrapper<UserEntity> wrapper);
+
+	List<UserView> selectListView(Pagination page,@Param("ew") Wrapper<UserEntity> wrapper);
+
+	
+	UserView selectView(@Param("ew") Wrapper<UserEntity> wrapper);
+	
+
+}

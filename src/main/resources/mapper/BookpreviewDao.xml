@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.BookpreviewDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.BookpreviewEntity" id="bookpreviewMap">
+        <result property="isbn" column="isbn"/>
+        <result property="booktitle" column="booktitle"/>
+        <result property="bookclassification" column="bookclassification"/>
+        <result property="author" column="author"/>
+        <result property="authorsnationality" column="authorsnationality"/>
+        <result property="language" column="language"/>
+        <result property="publishinghouse" column="publishinghouse"/>
+        <result property="publicationdate" column="publicationdate"/>
+        <result property="bookcover" column="bookcover"/>
+        <result property="bookintroduction" column="bookintroduction"/>
+        <result property="thumbsupnum" column="thumbsupnum"/>
+        <result property="crazilynum" column="crazilynum"/>
+        <result property="storeupnum" column="storeupnum"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.BookpreviewVO" >
+		SELECT * FROM bookpreview  bookpreview         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.BookpreviewVO" >
+		SELECT  bookpreview.* FROM bookpreview  bookpreview 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.BookpreviewView" >
+
+		SELECT  bookpreview.* FROM bookpreview  bookpreview 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.BookpreviewView" >
+		SELECT * FROM bookpreview  bookpreview <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+
+</mapper>
